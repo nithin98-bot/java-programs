@@ -11,8 +11,6 @@ public static void main(String[] args) {
 
 
     do {
-        //display menu to user
-        //ask user for his choice and validate it (make sure it is between 1 and 6)
         System.out.println();
         System.out.println("1) Open a new bank account");
         System.out.println("2) Deposit to a bank account");
@@ -56,18 +54,12 @@ while (user_choice != '6');
 }
 
 static class Bank {
-private BankAccount[] accounts;     // all the bank accounts at this bank
-private int numOfAccounts = 5;      // the number of bank accounts at this bank
-
-// Constructor: A new Bank object initially doesn’t contain any accounts.
+private BankAccount[] accounts;     
+private int numOfAccounts = 5;      
 public Bank() {
     accounts = new BankAccount[5];
     numOfAccounts = 0;
     }
-
-// Creates a new bank account using the customer name and the opening balance given as parameters
-// and returns the account number of this new account. It also adds this account into the account list
-// of the Bank calling object.
 public int openNewAccount(String customerName, double openingBalance) {
 
     BankAccount b = new BankAccount(customerName, openingBalance);
@@ -75,9 +67,6 @@ public int openNewAccount(String customerName, double openingBalance) {
     numOfAccounts++;
     return b.getAccountNum();
 }
-
-// Withdraws the given amount from the account whose account number is given. If the account is
-// not available at the bank, it should print a message.
 public void withdrawFrom(int accountNum, double amount) {
     for (int i =0; i<numOfAccounts; i++) {
         if (accountNum == accounts[i].getAccountNum()  ) {
@@ -88,9 +77,6 @@ public void withdrawFrom(int accountNum, double amount) {
     }
     System.out.println("Account number not found.");
     }
-
-// Deposits the given amount to the account whose account number is given. If the account is not
-// available at the bank, it should print a message.
 public void depositTo(int accountNum, double amount) {praveenatsm.shiash@gmail.com
 
     for (int i =0; i<numOfAccounts; i++) {
@@ -102,9 +88,6 @@ public void depositTo(int accountNum, double amount) {praveenatsm.shiash@gmail.c
     }
     System.out.println("Account number not found.");
 }
-
-// Prints the account number, the customer name and the balance of the bank account whose
-// account number is given. If the account is not available at the bank, it should print a message.
 public void printAccountInfo(int accountNum) {
     for (int i =0; i<numOfAccounts; i++) {
                 if (accountNum == accounts[i].getAccountNum()  ) {
@@ -127,11 +110,6 @@ public void printAccountInfo(int accountNum, int n) {
     }
 
 }
-
-
-
-
-
   static class BankAccount{
 
        private int accountNum;
@@ -142,8 +120,6 @@ public void printAccountInfo(int accountNum, int n) {
        public String getAccountInfo(){
            return "Account number: " + accountNum + "\nCustomer Name: " + customerName + "\nBalance:" + balance +"\n";
        }
-
-
        public BankAccount(String abc, double xyz){
          customerName = abc;
          balance = xyz;
@@ -160,7 +136,6 @@ public void printAccountInfo(int accountNum, int n) {
             System.out.println("Amount to be deposited should be positive");
         } else {
             balance = balance + amount;
-
         }
     }
     public void withdraw(double amount)
@@ -174,9 +149,7 @@ public void printAccountInfo(int accountNum, int n) {
                 System.out.println("Insufficient balance");
             } else {
                 balance = balance - amount;
-
             }
         }
     }
-
-}//end of class
+}
